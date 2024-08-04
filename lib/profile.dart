@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:katalog_film/data/item_data.dart';
 import 'package:katalog_film/data/login_data.dart';
@@ -50,10 +48,6 @@ class _ProfileState extends State<Profile> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _showLogoutConfirmationDialog();
-          if (kembali == true) {
-            Navigator.pushNamed(context, '/');
-            kembali = false;
-          }
         },
         child: Icon(
           Icons.logout,

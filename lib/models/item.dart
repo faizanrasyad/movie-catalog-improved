@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class Item {
   String name;
   String production;

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:katalog_film/models/item.dart';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as path;
+import 'dart:io';
 
 class MoviesDetail extends StatefulWidget {
   final Item movie;
@@ -20,10 +24,64 @@ class _MoviesDetailState extends State<MoviesDetail> {
       super.initState();
     }
 
+    Future<void> _downloadPoster(String imageUrl) async {
+      try {
+        final response = await http.get(Uri.parse(imageUrl));
+        if (response.statusCode == 200) {
+          final directory = await getApplicationDocumentsDirectory();
+          final filePath = path.join(directory.path, path.basename(imageUrl));
+          final file = File(filePath);
+          await file.writeAsBytes(response.bodyBytes);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Poster berhasil diunduh ke $filePath')),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Gagal mengunduh poster')),
+          );
+        }
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Terjadi kesalahan: $e')),
+        );
+      }
+    }
+
+    void _showDownloadConfirmationDialog() {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Unduh Poster'),
+            content: Text(
+                'Apakah anda yakin ingin mengunduh poster film ${movie.name}?'),
+            actions: [
+              TextButton(
+                child: Text('Tidak'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: Text('Ya'),
+                onPressed: () {
+                  _downloadPoster(movie.image);
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.download),
+        onPressed: () {
+          _showDownloadConfirmationDialog();
+        },
+        child: Icon(Icons.download, size: 35, color: Colors.blue),
+        backgroundColor: Color.fromARGB(255, 131, 174, 248),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
