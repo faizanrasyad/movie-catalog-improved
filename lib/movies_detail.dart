@@ -61,6 +61,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
                 ),
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,7 +100,25 @@ class _MoviesDetailState extends State<MoviesDetail> {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
-                            color: Colors.black26,
+                            color: Colors.black,
+                            fontSize: 14),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Icon(
+                        Icons.movie,
+                        size: 14,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Text(
+                        movie.production.toString(),
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
                             fontSize: 14),
                       ),
                     ],
