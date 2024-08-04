@@ -21,6 +21,10 @@ class _MoviesDetailState extends State<MoviesDetail> {
     }
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.download),
+      ),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
