@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:katalog_film/data/item_data.dart';
 import 'package:katalog_film/data/login_data.dart';
 import 'package:katalog_film/models/item.dart';
+import 'package:katalog_film/movies_detail.dart';
 import 'package:katalog_film/widgets/bottomnavbar.dart';
 
 class Movies extends StatefulWidget {
@@ -173,13 +174,13 @@ class _MoviesState extends State<Movies> {
                   : ListView.builder(
                       itemCount: filteredItems.length,
                       itemBuilder: (context, index) {
-                        return GestureDetector(
+                        return InkWell(
                           onTap: () {
-                            print(filteredItems[index].name);
-                            print(filteredItems[index].production);
-                            print(filteredItems[index].rating);
-                            print(filteredItems[index].image);
-                            print(filteredItems[index].desc);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => MoviesDetail(
+                                        movie: filteredItems[index])));
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(vertical: 24),
