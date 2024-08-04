@@ -127,7 +127,7 @@ class _MoviesState extends State<Movies> {
                   },
                   child: Image.asset(
                     'assets/default_profile_icon.png',
-                    width: MediaQuery.of(context).size.width * .10,
+                    width: 50,
                   ),
                 )
               ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:katalog_film/models/item.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
@@ -24,22 +25,18 @@ class _MoviesDetailState extends State<MoviesDetail> {
       super.initState();
     }
 
-    Future<void> _downloadPoster(String imageUrl) async {
+    Future<void> _downloadPoster(BuildContext context, String assetPath) async {
       try {
-        final response = await http.get(Uri.parse(imageUrl));
-        if (response.statusCode == 200) {
-          final directory = await getApplicationDocumentsDirectory();
-          final filePath = path.join(directory.path, path.basename(imageUrl));
-          final file = File(filePath);
-          await file.writeAsBytes(response.bodyBytes);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Poster berhasil diunduh ke $filePath')),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Gagal mengunduh poster')),
-          );
-        }
+        final byteData = await rootBundle.load(assetPath);
+        final buffer = byteData.buffer;
+        final directory = await getApplicationDocumentsDirectory();
+        final filePath = path.join(directory.path, path.basename(assetPath));
+        final file = File(filePath);
+        await file.writeAsBytes(
+            buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Poster berhasil diunduh ke $filePath')),
+        );
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Terjadi kesalahan: $e')),
@@ -48,6 +45,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
     }
 
     void _showDownloadConfirmationDialog() {
+      final String assetImage = 'assets/${movie.image}';
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -65,7 +63,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
               TextButton(
                 child: Text('Ya'),
                 onPressed: () {
-                  _downloadPoster(movie.image);
+                  // _downloadPoster(context, assetImage);
                   Navigator.of(context).pop();
                 },
               ),
