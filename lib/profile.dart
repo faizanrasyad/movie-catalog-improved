@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:katalog_film/data/item_data.dart';
 import 'package:katalog_film/data/login_data.dart';
+import 'package:katalog_film/models/login_data.dart';
 import 'package:katalog_film/widgets/bottomnavbar.dart';
 
 class Profile extends StatefulWidget {
@@ -61,6 +62,29 @@ class _ProfileState extends State<Profile> {
         ),
         backgroundColor: const Color.fromARGB(255, 255, 136, 127),
       ),
+      body: SafeArea(
+          child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/default_profile_icon.png',
+                width: MediaQuery.of(context).size.width * .50,
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                LoginData().getUsername().toString(),
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+              )
+            ],
+          )
+        ],
+      )),
     );
   }
 }
