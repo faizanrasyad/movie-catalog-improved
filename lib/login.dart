@@ -116,10 +116,14 @@ class _LoginState extends State<Login> {
                                 }
                               }
                             },
-                            child: Text('Login'),
+                            child: Text(
+                              'Login',
+                              style: TextStyle(fontSize: 16),
+                            ),
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.black,
-                                foregroundColor: Colors.white),
+                                foregroundColor: Colors.white,
+                                minimumSize: const Size(150, 50)),
                           ),
                         ),
                       )

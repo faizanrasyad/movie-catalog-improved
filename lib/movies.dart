@@ -105,120 +105,120 @@ class _MoviesState extends State<Movies> {
     );
   }
 
-  void _showAddMovieDialog() {
-    String name = '';
-    String production = '';
-    String desc = '';
-    int rating = 0;
-    File? imageFile;
+  // void _showAddMovieDialog() {
+  //   String name = '';
+  //   String production = '';
+  //   String desc = '';
+  //   int rating = 0;
+  //   File? imageFile;
 
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(
-            'Tambahkan Film',
-          ),
-          content: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text(
-                  'Masukkan data film dengan tepat!',
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Nama Film',
-                  ),
-                  onChanged: (value) {
-                    name = value;
-                  },
-                ),
-                TextField(
-                  decoration: InputDecoration(hintText: 'Produksi'),
-                  onChanged: (value) {
-                    production = value;
-                  },
-                ),
-                TextField(
-                  decoration: InputDecoration(hintText: 'Deskripsi'),
-                  onChanged: (value) {
-                    desc = value;
-                  },
-                ),
-                TextField(
-                  decoration: InputDecoration(hintText: 'Rating'),
-                  keyboardType: TextInputType.number,
-                  maxLength: 1,
-                  onChanged: (value) {
-                    rating = int.tryParse(value) ?? 0;
-                  },
-                ),
-                SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () async {
-                    final pickedFile = await ImagePicker()
-                        .pickImage(source: ImageSource.gallery);
-                    final directory = await getExternalStorageDirectory();
-                    if (pickedFile != null) {
-                      if (directory != null) {
-                        imageFile = await File(pickedFile.path)
-                            .copy('${directory.path}/${pickedFile.name}');
-                      }
-                    }
-                  },
-                  child: Text('Unggah Poster'),
-                ),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              child: Text(
-                'Batal',
-                style: TextStyle(color: Colors.red),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text(
-                'Tambah',
-                style: TextStyle(color: Colors.green),
-              ),
-              onPressed: () async {
-                try {
-                  if (name.isNotEmpty &&
-                      production.isNotEmpty &&
-                      desc.isNotEmpty &&
-                      rating > 0 &&
-                      imageFile != null) {
-                    setState(() {
-                      final newItem = Item(
-                        name: name,
-                        production: production,
-                        rating: rating,
-                        desc: desc,
-                        image: imageFile!.path.split('/').last,
-                      );
-                      MoviesData().items.add(newItem);
-                      search(query);
-                    });
-                    Navigator.of(context).pop();
-                  } else {}
-                } catch (e) {
-                  print(e);
-                }
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: Text(
+  //           'Tambahkan Film',
+  //         ),
+  //         content: SingleChildScrollView(
+  //           child: Column(
+  //             children: [
+  //               Text(
+  //                 'Masukkan data film dengan tepat!',
+  //               ),
+  //               const SizedBox(
+  //                 height: 4,
+  //               ),
+  //               TextField(
+  //                 decoration: InputDecoration(
+  //                   hintText: 'Nama Film',
+  //                 ),
+  //                 onChanged: (value) {
+  //                   name = value;
+  //                 },
+  //               ),
+  //               TextField(
+  //                 decoration: InputDecoration(hintText: 'Produksi'),
+  //                 onChanged: (value) {
+  //                   production = value;
+  //                 },
+  //               ),
+  //               TextField(
+  //                 decoration: InputDecoration(hintText: 'Deskripsi'),
+  //                 onChanged: (value) {
+  //                   desc = value;
+  //                 },
+  //               ),
+  //               TextField(
+  //                 decoration: InputDecoration(hintText: 'Rating'),
+  //                 keyboardType: TextInputType.number,
+  //                 maxLength: 1,
+  //                 onChanged: (value) {
+  //                   rating = int.tryParse(value) ?? 0;
+  //                 },
+  //               ),
+  //               SizedBox(height: 10),
+  //               ElevatedButton(
+  //                 onPressed: () async {
+  //                   final pickedFile = await ImagePicker()
+  //                       .pickImage(source: ImageSource.gallery);
+  //                   final directory = await getExternalStorageDirectory();
+  //                   if (pickedFile != null) {
+  //                     if (directory != null) {
+  //                       imageFile = await File(pickedFile.path)
+  //                           .copy('${directory.path}/${pickedFile.name}');
+  //                     }
+  //                   }
+  //                 },
+  //                 child: Text('Unggah Poster'),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //         actions: [
+  //           TextButton(
+  //             child: Text(
+  //               'Batal',
+  //               style: TextStyle(color: Colors.red),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //           TextButton(
+  //             child: Text(
+  //               'Tambah',
+  //               style: TextStyle(color: Colors.green),
+  //             ),
+  //             onPressed: () async {
+  //               try {
+  //                 if (name.isNotEmpty &&
+  //                     production.isNotEmpty &&
+  //                     desc.isNotEmpty &&
+  //                     rating > 0 &&
+  //                     imageFile != null) {
+  //                   setState(() {
+  //                     final newItem = Item(
+  //                       name: name,
+  //                       production: production,
+  //                       rating: rating,
+  //                       desc: desc,
+  //                       image: imageFile!.path.split('/').last,
+  //                     );
+  //                     MoviesData().items.add(newItem);
+  //                     search(query);
+  //                   });
+  //                   Navigator.of(context).pop();
+  //                 } else {}
+  //               } catch (e) {
+  //                 print(e);
+  //               }
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -228,7 +228,7 @@ class _MoviesState extends State<Movies> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
-        onPressed: _showAddMovieDialog,
+        onPressed: () {}, //_showAddMovieDialog,
         child: Icon(
           Icons.add,
           color: Colors.white,
@@ -398,17 +398,15 @@ class _MoviesState extends State<Movies> {
                                         ],
                                       ),
                                       const SizedBox(
-                                        height: 16,
+                                        height: 8,
                                       ),
                                       Container(
-                                        padding:
-                                            const EdgeInsets.only(right: 4.0),
                                         child: Text(
                                           filteredItems[index].desc,
-                                          overflow: TextOverflow.clip,
+                                          overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
                                               fontWeight: FontWeight.w600,
-                                              fontSize: 18),
+                                              fontSize: 14),
                                         ),
                                       ),
                                       const SizedBox(
