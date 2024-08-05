@@ -64,7 +64,7 @@ class _ProfileState extends State<Profile> {
             children: [
               Image.asset(
                 'assets/default_profile_icon.png',
-                width: MediaQuery.of(context).size.width * .50,
+                width: 200,
               ),
             ],
           ),
