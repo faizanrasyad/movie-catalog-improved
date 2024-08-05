@@ -25,13 +25,13 @@ class _ProfileState extends State<Profile> {
             style: TextStyle(color: Colors.white),
           ),
           content: Text(
-            'Apakah anda yakin ingin Logout?',
+            'Are you sure you want to logout?',
             style: TextStyle(color: Colors.white),
           ),
           actions: [
             TextButton(
               child: Text(
-                'Tidak',
+                'Cancel',
                 style: TextStyle(color: Colors.red),
               ),
               onPressed: () {
@@ -40,7 +40,7 @@ class _ProfileState extends State<Profile> {
             ),
             TextButton(
               child: Text(
-                'Ya',
+                'Yes',
                 style: TextStyle(color: Colors.green),
               ),
               onPressed: () {

@@ -271,7 +271,7 @@ class _MoviesState extends State<Movies> {
                 },
                 decoration: InputDecoration(
                   focusColor: Colors.black,
-                  hintText: 'Cari...',
+                  hintText: 'Search...',
                   hintStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),

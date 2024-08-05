@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'package:katalog_film/models/item.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
 class MoviesDetail extends StatefulWidget {
   final Item movie;
@@ -53,17 +52,17 @@ class _MoviesDetailState extends State<MoviesDetail> {
           return AlertDialog(
             backgroundColor: Colors.black,
             title: Text(
-              'Unduh Poster',
+              'Download Poster',
               style: TextStyle(color: Colors.white),
             ),
             content: Text(
-              'Apakah anda yakin ingin mengunduh poster film ${movie.name}?',
+              'Are you sure you want to download ${movie.name} poster?',
               style: TextStyle(color: Colors.white),
             ),
             actions: [
               TextButton(
                 child: Text(
-                  'Tidak',
+                  'Cancel',
                   style: TextStyle(color: Colors.red),
                 ),
                 onPressed: () {
@@ -72,7 +71,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
               ),
               TextButton(
                 child: Text(
-                  'Ya',
+                  'Yes',
                   style: TextStyle(color: Colors.green),
                 ),
                 onPressed: () {

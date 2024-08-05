@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
                 ),
                 Image.asset('assets/movie.jpg'),
                 Text(
-                  'Katalog Film',
+                  'Movie Catalog',
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 Form(
@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
                               prefixIcon: Icon(Icons.person)),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Username tidak boleh kosong";
+                              return "Username can't be empty";
                             }
                             return null;
                           },
@@ -77,10 +77,10 @@ class _LoginState extends State<Login> {
                               prefixIcon: Icon(Icons.key)),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Password tidak boleh kosong";
+                              return "Password can't be empty";
                             }
                             if (value.length < 5) {
-                              return "Password minimal 5 karakter";
+                              return "Password must have 5 characters minimum";
                             }
                             return null;
                           },
@@ -104,7 +104,7 @@ class _LoginState extends State<Login> {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(
                                             content: Text(
-                                                'Data pengguna tidak ditemukan!')));
+                                                'User data is not found!')));
                                     repeat++;
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(

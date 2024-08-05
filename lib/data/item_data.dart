@@ -15,7 +15,7 @@ class MoviesData {
         production: 'Marvel',
         rating: 5,
         desc:
-            'Ketika musuh tak terduga muncul mengancam keselamatan dunia, Nick Fury, direktur S.H.I.E.L.D., memulai rekrutmen proyek superhero yang dikenal sebagai Avengers. Tim ini terdiri dari Iron Man, Captain America, Thor, Hulk, Black Widow, dan Hawkeye. Mereka harus belajar bekerja sama untuk menghentikan Loki dan pasukannya dari memulai perang global.',
+            "When an unexpected enemy emerges threatening global safety, Nick Fury, director of S.H.I.E.L.D., initiates a superhero recruitment project known as the Avengers. The team includes Iron Man, Captain America, Thor, Hulk, Black Widow, and Hawkeye. They must learn to work together to stop Loki and his army from starting a global war.",
         image: 'avengers.jpg',
         pgrating: 'PG-13',
         year: 2012),
@@ -24,7 +24,7 @@ class MoviesData {
         production: 'Marvel',
         rating: 5,
         desc:
-            'Avengers berkumpul kembali untuk menghadapi Ultron, sebuah program kecerdasan buatan yang diciptakan oleh Tony Stark dan Bruce Banner. Ultron, yang memiliki rencana jahat untuk menghancurkan umat manusia, harus dihentikan oleh para pahlawan super ini sebelum terlambat.',
+            "The Avengers reassemble to face Ultron, an artificial intelligence program created by Tony Stark and Bruce Banner. Ultron, with a sinister plan to wipe out humanity, must be stopped by these superheroes before it's too late.",
         image: 'avengers_aou.jpg',
         pgrating: 'PG-13',
         year: 2015),
@@ -33,7 +33,7 @@ class MoviesData {
         production: 'Marvel',
         rating: 5,
         desc:
-            'Avengers dan sekutu mereka bersatu untuk melawan Thanos, tiran antargalaksi yang mengumpulkan Infinity Stones untuk mencapai tujuannya menghapus setengah populasi alam semesta. Pertarungan epik ini menempatkan nasib alam semesta dalam keseimbangan.',
+            "The Avengers and their allies unite to battle Thanos, an intergalactic tyrant collecting the Infinity Stones to achieve his goal of wiping out half the universe's population. This epic battle places the fate of the universe in balance.",
         image: 'infinity_war.jpg',
         pgrating: 'PG-13',
         year: 2018),
@@ -42,7 +42,7 @@ class MoviesData {
         production: 'Marvel',
         rating: 5,
         desc:
-            'Setelah kehancuran yang disebabkan oleh Thanos di Avengers: Infinity War, para Avengers yang tersisa berusaha untuk membalikkan keadaan dan mengembalikan semua orang yang hilang. Mereka melakukan perjalanan melintasi waktu untuk mengumpulkan Infinity Stones dan mengalahkan Thanos sekali dan untuk selamanya.',
+            "Following the devastation caused by Thanos in Avengers: Infinity War, the remaining Avengers strive to reverse the situation and bring back everyone who vanished. They travel through time to collect the Infinity Stones and defeat Thanos once and for all.",
         image: 'endgame.jpg',
         pgrating: 'PG-13',
         year: 2019),
@@ -51,7 +51,7 @@ class MoviesData {
         production: 'DC Comics',
         rating: 3,
         desc:
-            'Jaime Reyes, seorang remaja yang menemukan seekor kumbang alien yang memberinya kekuatan super dan baju besi. Dengan kekuatan ini, Jaime harus belajar mengendalikan kekuatannya dan melindungi orang-orang yang dicintainya dari ancaman yang datang.',
+            "Jaime Reyes, a teenager, discovers an alien scarab that grants him superpowers and armor. With these powers, Jaime must learn to control them and protect his loved ones from impending threats.",
         image: 'blue_beetle.jpg',
         pgrating: 'PG-13',
         year: 2023),
@@ -60,7 +60,7 @@ class MoviesData {
         production: 'DC Comics',
         rating: 5,
         desc:
-            'Batman menghadapi musuh baru yang kejam dan tak terduga, Joker. Dengan bantuan Komisaris Gordon dan Jaksa Distrik Harvey Dent, Batman berusaha menghentikan Joker yang ingin menghancurkan kota Gotham dan membuktikan bahwa bahkan pahlawan terbesar pun memiliki batas.',
+            "Batman faces a new and unexpected enemy, the Joker. With the help of Commissioner Gordon and District Attorney Harvey Dent, Batman attempts to stop the Joker, who aims to destroy Gotham City and prove that even the greatest heroes have limits.",
         image: 'dark_knight.jpg',
         pgrating: 'PG-13',
         year: 2008),
@@ -69,7 +69,7 @@ class MoviesData {
         production: 'DC Comics',
         rating: 4,
         desc:
-            'Sekelompok penjahat super yang dipenjara diberi kesempatan untuk mengurangi hukuman mereka dengan menjalankan misi berbahaya untuk pemerintah. Dipimpin oleh Deadshot, Harley Quinn, dan Captain Boomerang, mereka harus bekerja sama untuk menghentikan ancaman yang mengancam dunia.',
+            "A group of imprisoned supervillains is given a chance to reduce their sentences by undertaking dangerous missions for the government. Led by Deadshot, Harley Quinn, and Captain Boomerang, they must work together to stop a world-threatening menace.",
         image: 'suicide_squad.jpg',
         pgrating: 'PG-13',
         year: 2016),
@@ -78,7 +78,7 @@ class MoviesData {
         production: 'DC Comics',
         rating: 4,
         desc:
-            'Film ini mengisahkan tentang konflik antara Batman (Bruce Wayne) dan Superman (Clark Kent) setelah pertarungan Superman yang merusak kota Metropolis. Lex Luthor memanipulasi keduanya agar saling bertarung, sementara ancaman baru muncul dalam bentuk Doomsday.',
+            "The film depicts the conflict between Batman (Bruce Wayne) and Superman (Clark Kent) after Superman's battle that devastated Metropolis. Lex Luthor manipulates them to fight each other, while a new threat emerges in the form of Doomsday.",
         image: 'batmanvsuperman.jpg',
         pgrating: 'PG-13',
         year: 2016),
@@ -87,7 +87,7 @@ class MoviesData {
         production: 'Marvel',
         rating: 3,
         desc:
-            'Natasha Romanoff (Black Widow) berhadapan dengan bagian kelam dari masa lalunya ketika konspirasi berbahaya yang terkait dengan sejarahnya muncul. Dikejar oleh kekuatan yang tak kenal lelah, Natasha harus menghadapi masa lalunya sebagai mata-mata dan hubungan rusak yang ditinggalkannya jauh sebelum menjadi Avenger.',
+            'Natasha Romanoff (Black Widow) confronts the darker parts of her past when a dangerous conspiracy linked to her history emerges. Pursued by relentless forces, Natasha must face her past as a spy and the broken relationships she left behind long before becoming an Avenger.',
         image: 'black_widow.jpg',
         pgrating: 'PG-13',
         year: 2021),
@@ -96,7 +96,7 @@ class MoviesData {
         production: 'Marvel',
         rating: 5,
         desc:
-            'Peter Parker menghadapi tantangan terbesar dalam hidupnya ketika identitasnya sebagai Spider-Man terbongkar. Meminta bantuan Doctor Strange, Peter mencoba untuk mengembalikan kehidupan normalnya, tetapi justru membuka pintu ke multiverse yang membawa musuh-musuh dari berbagai dimensi.',
+            "Peter Parker faces his greatest challenge when his identity as Spider-Man is revealed. Seeking help from Doctor Strange, Peter tries to restore his normal life, but instead opens the door to the multiverse, bringing in enemies from different dimensions.",
         image: 'spiderman_nwh.jpg',
         pgrating: 'PG-13',
         year: 2021),
@@ -105,7 +105,7 @@ class MoviesData {
         production: 'DC Comics',
         rating: 2,
         desc:
-            'Setelah menghilang selama beberapa tahun, Superman kembali ke Bumi untuk menemukan dunia yang tidak lagi membutuhkannya. Dia harus menghadapi kenyataan baru dan ancaman dari Lex Luthor yang memiliki rencana jahat untuk menghancurkan dunia.',
+            "After being absent for several years, Superman returns to Earth to find a world that no longer needs him. He must confront new realities and threats from Lex Luthor, who has a sinister plan to destroy the world.",
         image: 'superman_returns.jpg',
         pgrating: 'PG-13',
         year: 2006),
@@ -114,7 +114,7 @@ class MoviesData {
         production: 'DC Comics',
         rating: 1,
         desc:
-            'Barry Allen menggunakan kekuatannya untuk melakukan perjalanan kembali ke masa lalu dan mencoba untuk mencegah pembunuhan ibunya. Namun, tindakannya ini menciptakan realitas alternatif dengan konsekuensi berbahaya yang harus dihadapinya.',
+            "Barry Allen uses his powers to travel back in time to prevent his mother's murder. However, his actions create an alternate reality with dangerous consequences that he must face.",
         image: 'theflash.jpg',
         pgrating: 'PG-13',
         year: 2023),
@@ -123,7 +123,7 @@ class MoviesData {
         production: 'Marvel',
         rating: 4,
         desc:
-            'Thor harus menghadapi Gorr the God Butcher, yang memiliki niat untuk memusnahkan para dewa. Dibantu oleh Valkyrie, Korg, dan mantan kekasihnya Jane Foster yang kini menjadi Mighty Thor, mereka berusaha menghentikan ancaman tersebut.',
+            "Thor must face Gorr the God Butcher, who aims to exterminate the gods. Aided by Valkyrie, Korg, and his ex-girlfriend Jane Foster, now the Mighty Thor, they strive to stop this threat.",
         image: 'thor_lat.jpg',
         pgrating: 'PG-13',
         year: 2022),
