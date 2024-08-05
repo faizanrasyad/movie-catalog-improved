@@ -1,57 +1,33 @@
-# Movie Catalog
+# 🎬 Movie Catalog
 
 A straightforward and simple application that provides a catalog of movies. 
 Made w/ Flutter.
 
-## Description
+## 🗒️ Description
 This movie catalog app is made for my first internship assigntment in PT Mejakita Edunusa Mandiri. This app provides a brief information about some movies. Numbers of basic mobile app development features with Flutter are implemented here, such as pagination, login with its form validations and List View along with the search and filter feature through the list.
 
-### Dependencies
+## 🔰 Getting Started
 
-* [image_picker]((https://pub.dev/packages/image_picker))
-* [path_provider]((https://pub.dev/packages/path_provider))
-* [path]((https://pub.dev/packages/path))
-* [http]((https://pub.dev/packages/http))
-* [gal]((https://pub.dev/packages/gal))
+### 🔒 Login
 
-### Login 
+* Username : admin
+* Password : admin123
 
-* 
-```
-code blocks for commands
-```
+### 📚 Dependencies
 
-## Help
+* [image_picker](https://pub.dev/packages/image_picker)
+* [path_provider](https://pub.dev/packages/path_provider)
+* [path](https://pub.dev/packages/path)
+* [http](https://pub.dev/packages/http)
+* [gal](https://pub.dev/packages/gal)
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+## 🚩 Unused Add-on
 
-## Authors
+### 🗃️ Database w/ SQL
+![Database Diagram](https://github.com/user-attachments/assets/4a1c4e7d-9ff5-47dc-9308-98c1d5765090)
 
-Contributors names and contact info
+### 🗂️ Local API w/ ASP.NET Web API
+![Endpoints](https://github.com/user-attachments/assets/a0bc384b-4465-48bc-96a5-93070ea3df74)
+![GET Endpoint Example](https://github.com/user-attachments/assets/9d5f5956-f2f7-4685-85c8-6c740a266896)
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+Ended up not using it because it will require my laptop to act as the server, and the connected device needs to use the same WiFi as my laptop.  
