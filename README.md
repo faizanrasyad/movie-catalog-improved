@@ -1,4 +1,4 @@
-# 🎬 Movie Catalog
+# Movie Catalog
 
 A straightforward and simple application that provides a catalog of movies. 
 Made w/ Flutter.
