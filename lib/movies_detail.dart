@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:katalog_film/models/item.dart';
+import 'package:gal/gal.dart';
 import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' as path;
 import 'dart:io';
+import 'package:katalog_film/models/item.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
 class MoviesDetail extends StatefulWidget {
   final Item movie;
@@ -15,6 +16,8 @@ class MoviesDetail extends StatefulWidget {
 }
 
 class _MoviesDetailState extends State<MoviesDetail> {
+  final navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
     Item movie = widget.movie;
@@ -25,27 +28,25 @@ class _MoviesDetailState extends State<MoviesDetail> {
       super.initState();
     }
 
-    Future<void> _downloadPoster(BuildContext context, String assetPath) async {
-      try {
-        final byteData = await rootBundle.load(assetPath);
-        final buffer = byteData.buffer;
-        final directory = await getApplicationDocumentsDirectory();
-        final filePath = path.join(directory.path, path.basename(assetPath));
-        final file = File(filePath);
-        await file.writeAsBytes(
-            buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Poster berhasil diunduh ke $filePath')),
-        );
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Terjadi kesalahan: $e')),
-        );
-      }
+    Future<String> getFilePath(String path) async {
+      final byteData = await rootBundle.load(path);
+      final file = await File(
+              '${Directory.systemTemp.path}${path.replaceAll('assets', '')}')
+          .create();
+      await file.writeAsBytes(byteData.buffer
+          .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+      return file.path;
+    }
+
+    Future<void> _saveImage(BuildContext context, String imagePath) async {
+      final path = await getFilePath(imagePath);
+      await Gal.putImage(path);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Poster telah tersimpan di Galeri!'),
+      ));
     }
 
     void _showDownloadConfirmationDialog() {
-      final String assetImage = 'assets/${movie.image}';
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -63,7 +64,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
               TextButton(
                 child: Text('Ya'),
                 onPressed: () {
-                  // _downloadPoster(context, assetImage);
+                  _saveImage(context, 'assets/${movie.image}');
                   Navigator.of(context).pop();
                 },
               ),
