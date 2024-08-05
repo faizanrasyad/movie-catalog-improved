@@ -42,9 +42,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
       final path = await getFilePath(imagePath);
       await Gal.putImage(path);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: const Text('Poster terunduh'),
-        action: SnackBarAction(
-            label: 'Buka galeri', onPressed: () async => Gal.open()),
+        content: const Text('Poster telah tersimpan di galeri'),
       ));
     }
 

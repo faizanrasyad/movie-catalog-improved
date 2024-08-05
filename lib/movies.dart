@@ -270,6 +270,7 @@ class _MoviesState extends State<Movies> {
                   search(value);
                 },
                 decoration: InputDecoration(
+                  focusColor: Colors.black,
                   hintText: 'Cari...',
                   hintStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(
@@ -284,11 +285,15 @@ class _MoviesState extends State<Movies> {
                 Checkbox(
                   value: marvelFilter,
                   onChanged: toggleMarvelFilter,
+                  checkColor: Colors.white,
+                  activeColor: Colors.black,
                 ),
                 Text('Marvel'),
                 Checkbox(
                   value: dcComicsFilter,
                   onChanged: toggleDcComicsFilter,
+                  checkColor: Colors.white,
+                  activeColor: Colors.black,
                 ),
                 Text('DC Comics'),
               ],

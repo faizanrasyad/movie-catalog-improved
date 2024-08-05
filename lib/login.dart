@@ -55,9 +55,9 @@ class _LoginState extends State<Login> {
                           maxLength: 20,
                           controller: userController,
                           decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Username',
-                          ),
+                              border: OutlineInputBorder(),
+                              labelText: 'Username',
+                              prefixIcon: Icon(Icons.person)),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "Username tidak boleh kosong";
@@ -72,9 +72,9 @@ class _LoginState extends State<Login> {
                           controller: passController,
                           obscureText: true,
                           decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Password',
-                          ),
+                              border: OutlineInputBorder(),
+                              labelText: 'Password',
+                              prefixIcon: Icon(Icons.key)),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "Password tidak boleh kosong";
