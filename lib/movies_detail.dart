@@ -115,7 +115,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
                     width: 16,
                   ),
                   Text(
-                    'Detail Film',
+                    'Movie Detail',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                   )
                 ],
@@ -204,7 +204,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Bahasa",
+                          Text("Language",
                               style: const TextStyle(
                                   fontSize: 16, color: Colors.black38)),
                           Text("English",
@@ -232,7 +232,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Tahun Rilis",
+                          Text("Year",
                               style: const TextStyle(
                                   fontSize: 16, color: Colors.black38)),
                           Text(movie.year.toString(),
@@ -248,7 +248,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Deskripsi",
+                      Text("Synopsis",
                           textAlign: TextAlign.justify,
                           style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold)),
@@ -259,11 +259,11 @@ class _MoviesDetailState extends State<MoviesDetail> {
                         movie.desc,
                         textAlign: TextAlign.justify,
                         style: const TextStyle(fontSize: 14),
-                      )
+                      ),
                     ],
                   ),
                   const SizedBox(
-                    height: 32,
+                    height: 60,
                   ),
                 ],
               )
