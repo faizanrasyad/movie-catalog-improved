@@ -19,19 +19,19 @@ class MoviesData {
     Item(
         name: "Marvel's Avengers: Infinity War",
         production: 'Marvel',
-        rating: 5,
+        rating: 4,
         desc: 'Keren',
         image: 'infinity_war.jpg'),
     Item(
         name: "Marvel's Avengers: Endgame",
         production: 'Marvel',
-        rating: 5,
+        rating: 4,
         desc: 'Keren',
         image: 'endgame.jpg'),
     Item(
         name: "Blue Beetle",
         production: 'DC Comics',
-        rating: 5,
+        rating: 3,
         desc: 'Keren',
         image: 'blue_beetle.jpg'),
     Item(
@@ -43,7 +43,7 @@ class MoviesData {
     Item(
         name: "Suicide Squad",
         production: 'DC Comics',
-        rating: 5,
+        rating: 4,
         desc: 'Keren',
         image: 'suicide_squad.jpg'),
   ];

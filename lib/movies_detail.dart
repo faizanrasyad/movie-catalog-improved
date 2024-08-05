@@ -221,7 +221,7 @@ class _MoviesDetailState extends State<MoviesDetail> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Rating",
+                          Text("Rating Usia",
                               style: const TextStyle(
                                   fontSize: 16, color: Colors.black38)),
                           Text("PG-17",
