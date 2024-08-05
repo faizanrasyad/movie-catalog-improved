@@ -18,6 +18,13 @@ class _LoginState extends State<Login> {
   String test = 'Halo';
   static String user = "";
   static String pass = "";
+  int repeat = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    repeat = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,10 +93,27 @@ class _LoginState extends State<Login> {
                           child: ElevatedButton(
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                LoginData().setLoginData(
-                                    userController.text, passController.text);
-                                Navigator.pushReplacementNamed(
-                                    context, '/movie');
+                                if (userController.text == 'admin' &&
+                                    passController.text == 'admin123') {
+                                  LoginData().setLoginData(
+                                      userController.text, passController.text);
+                                  Navigator.pushReplacementNamed(
+                                      context, '/movie');
+                                } else {
+                                  if (repeat == 0) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                'Data pengguna tidak ditemukan!')));
+                                    repeat++;
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                'Username : "admin" Password : "admin123"')));
+                                    repeat--;
+                                  }
+                                }
                               }
                             },
                             child: Text('Login'),
