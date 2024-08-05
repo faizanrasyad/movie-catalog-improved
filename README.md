@@ -13,6 +13,10 @@ This movie catalog app is made for my first internship assigntment in PT Mejakit
 * Username : admin
 * Password : admin123
 
+### ⚠️ Warnings
+
+* Make sure to run the application with a real mobile device (not emulator) in order for the download feature to work properly! 
+
 ### 📚 Dependencies
 
 * [image_picker](https://pub.dev/packages/image_picker)
