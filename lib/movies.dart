@@ -62,18 +62,30 @@ class _MoviesState extends State<Movies> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Hapus Film'),
+          backgroundColor: Colors.black,
+          title: Text(
+            'Hapus Film',
+            style: TextStyle(color: Colors.white),
+          ),
           content: Text(
-              'Apakah anda yakin ingin menghapus film "${filteredItems[index].name}"?'),
+            'Apakah anda yakin ingin menghapus film "${filteredItems[index].name}"?',
+            style: TextStyle(color: Colors.white),
+          ),
           actions: [
             TextButton(
-              child: Text('Tidak'),
+              child: Text(
+                'Tidak',
+                style: TextStyle(color: Colors.red),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Ya'),
+              child: Text(
+                'Ya',
+                style: TextStyle(color: Colors.green),
+              ),
               onPressed: () {
                 setState(() {
                   Item removedItem = filteredItems[index];

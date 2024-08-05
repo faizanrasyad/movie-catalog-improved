@@ -19,17 +19,30 @@ class _ProfileState extends State<Profile> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Logout'),
-          content: Text('Apakah anda yakin ingin Logout?'),
+          backgroundColor: Colors.black,
+          title: Text(
+            'Logout',
+            style: TextStyle(color: Colors.white),
+          ),
+          content: Text(
+            'Apakah anda yakin ingin Logout?',
+            style: TextStyle(color: Colors.white),
+          ),
           actions: [
             TextButton(
-              child: Text('Tidak'),
+              child: Text(
+                'Tidak',
+                style: TextStyle(color: Colors.red),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Ya'),
+              child: Text(
+                'Ya',
+                style: TextStyle(color: Colors.green),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.pushReplacementNamed(context, '/login');
