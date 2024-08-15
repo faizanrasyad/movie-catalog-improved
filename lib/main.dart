@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:katalog_film/movies.dart';
 import 'package:katalog_film/login.dart';
 import 'package:katalog_film/profile.dart';
+import 'package:katalog_film/register.dart';
 import 'package:katalog_film/splash_screen.dart';
 
 void main() {
@@ -11,6 +12,7 @@ void main() {
     routes: {
       '/': (context) => SplashScren(),
       '/login': (context) => Login(),
+      '/register': (context) => Register(),
       '/movie': (context) => Movies(),
       '/profile': (context) => Profile()
     },

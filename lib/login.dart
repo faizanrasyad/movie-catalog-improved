@@ -52,7 +52,6 @@ class _LoginState extends State<Login> {
                         padding:
                             EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                         child: TextFormField(
-                          maxLength: 20,
                           controller: userController,
                           decoration: const InputDecoration(
                               border: OutlineInputBorder(),
@@ -84,6 +83,32 @@ class _LoginState extends State<Login> {
                             }
                             return null;
                           },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 16),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Don't have an account yet?",
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            new InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/register');
+                              },
+                              child: new Text(
+                                "Create an account here",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    decoration: TextDecoration.underline),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                       Padding(
