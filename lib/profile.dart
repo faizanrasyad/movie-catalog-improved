@@ -89,6 +89,24 @@ class _ProfileState extends State<Profile> {
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
               )
             ],
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 50),
+            child: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/editProfile');
+                },
+                child: Text(
+                  'Edit Profile',
+                  style: TextStyle(fontSize: 16),
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent,
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size(150, 50)),
+              ),
+            ),
           )
         ],
       )),
