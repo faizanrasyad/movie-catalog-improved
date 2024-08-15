@@ -7,10 +7,12 @@ class LoginData {
 
   LoginData._internal();
 
+  String? name;
   String? username;
   String? password;
 
-  void setLoginData(String username, String password) {
+  void setLoginData(String name, String username, String password) {
+    this.name = name;
     this.username = username;
     this.password = password;
   }
@@ -21,5 +23,9 @@ class LoginData {
 
   String? getPassword() {
     return username;
+  }
+
+  String? getName() {
+    return name;
   }
 }

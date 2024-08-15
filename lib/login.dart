@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:katalog_film/data/login_data.dart';
+import 'package:katalog_film/data/user_data.dart';
 import 'package:katalog_film/models/login_data.dart';
+import 'package:katalog_film/models/user.dart';
 import 'package:katalog_film/movies.dart';
 
 class Login extends StatefulWidget {
@@ -41,7 +43,7 @@ class _LoginState extends State<Login> {
                 ),
                 Image.asset('assets/movie.jpg'),
                 Text(
-                  'Movie Catalog',
+                  'Login',
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 Form(
@@ -118,26 +120,28 @@ class _LoginState extends State<Login> {
                           child: ElevatedButton(
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                if (userController.text == 'admin' &&
-                                    passController.text == 'admin123') {
+                                List<User> users = UserData().users;
+
+                                User? loggedInUser = users.firstWhere(
+                                    (user) =>
+                                        user.username ==
+                                            userController.text.trim() &&
+                                        user.password ==
+                                            passController.text.trim(),
+                                    orElse: () => null!);
+
+                                if (loggedInUser != null) {
                                   LoginData().setLoginData(
-                                      userController.text, passController.text);
+                                      loggedInUser.name,
+                                      loggedInUser.username,
+                                      loggedInUser.password);
                                   Navigator.pushReplacementNamed(
                                       context, '/movie');
                                 } else {
-                                  if (repeat == 0) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'User data is not found!')));
-                                    repeat++;
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'Username : "admin" Password : "admin123"')));
-                                    repeat--;
-                                  }
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content:
+                                              Text('User data is not found!')));
                                 }
                               }
                             },

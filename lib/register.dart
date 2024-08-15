@@ -31,7 +31,7 @@ class _RegisterState extends State<Register> {
                   ),
                   Image.asset('assets/movie.jpg'),
                   Text(
-                    'Movie Catalog',
+                    'Register',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                   Form(
@@ -68,6 +68,11 @@ class _RegisterState extends State<Register> {
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return "Username can't be empty";
+                              }
+                              if (UserData()
+                                  .users
+                                  .any((user) => user.username == value)) {
+                                return "Username already exists";
                               }
                               return null;
                             },

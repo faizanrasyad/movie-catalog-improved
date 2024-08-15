@@ -85,7 +85,7 @@ class _ProfileState extends State<Profile> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                LoginData().getUsername().toString(),
+                LoginData().getName().toString(),
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
               )
             ],

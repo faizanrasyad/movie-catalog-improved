@@ -19,9 +19,16 @@ class _SplashScrenState extends State<SplashScren> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        child: Image.asset(
-            'assets/movie.jpg')); //FlutterLogo(size: MediaQuery.of(context).size.height));
+    return Column(
+      children: [
+        Container(color: Colors.white, child: Image.asset('assets/movie.jpg')),
+        Container(
+          child: Text(
+            'Login',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
+    ); //FlutterLogo(size: MediaQuery.of(context).size.height));
   }
 }
