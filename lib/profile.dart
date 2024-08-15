@@ -46,6 +46,9 @@ class _ProfileState extends State<Profile> {
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.pushReplacementNamed(context, '/login');
+                LoginData().name = "";
+                LoginData().username = "";
+                LoginData().password = "";
               },
             ),
           ],
@@ -95,10 +98,10 @@ class _ProfileState extends State<Profile> {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/editProfile');
+                  Navigator.pushNamed(context, '/editAccount');
                 },
                 child: Text(
-                  'Edit Profile',
+                  'Edit Account',
                   style: TextStyle(fontSize: 16),
                 ),
                 style: ElevatedButton.styleFrom(

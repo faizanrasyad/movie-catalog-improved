@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:katalog_film/data/login_data.dart';
 import 'package:katalog_film/data/user_data.dart';
 import 'package:katalog_film/models/user.dart';
 
-class EditProfile extends StatefulWidget {
-  const EditProfile({super.key});
+class EditAccount extends StatefulWidget {
+  const EditAccount({super.key});
 
   @override
-  State<EditProfile> createState() => _EditProfileState();
+  State<EditAccount> createState() => _EditAccountState();
 }
 
-class _EditProfileState extends State<EditProfile> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class _EditAccountState extends State<EditAccount> {
+  late TextEditingController nameController = TextEditingController();
+  late TextEditingController usernameController = TextEditingController();
+  late TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  late User currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+
+    String loggedInUsername = LoginData().username.toString();
+    currentUser = UserData()
+        .users
+        .firstWhere((user) => user.username == loggedInUsername);
+
+    nameController.text = currentUser.name;
+    usernameController.text = currentUser.username;
+    passwordController.text = currentUser.password;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +85,9 @@ class _EditProfileState extends State<EditProfile> {
                               if (value == null || value.isEmpty) {
                                 return "Username can't be empty";
                               }
-                              if (UserData()
-                                  .users
-                                  .any((user) => user.username == value)) {
+                              if (UserData().users.any((user) =>
+                                  user.username == value &&
+                                  user.username != value)) {
                                 return "Username already exists";
                               }
                               return null;
@@ -100,57 +116,31 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 16),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Already have an account?",
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(context, '/login');
-                                },
-                                child: Text(
-                                  "Login here",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      decoration: TextDecoration.underline),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Center(
                             child: ElevatedButton(
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  String name = nameController.text;
-                                  String username = usernameController.text;
-                                  String password = passwordController.text;
-
-                                  User newUser = User(
-                                      name: name,
-                                      username: username,
-                                      password: password);
-                                  UserData().users.add(newUser);
+                                  setState(() {
+                                    currentUser.name = nameController.text;
+                                    currentUser.username =
+                                        usernameController.text;
+                                    currentUser.password =
+                                        passwordController.text;
+                                  });
 
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
-                                          content:
-                                              Text('New Account Created!')));
-                                  Navigator.pushNamed(context, '/login');
+                                          content: Text('Account Updated!')));
+                                  LoginData().name = currentUser.name;
+                                  LoginData().username = currentUser.username;
+                                  LoginData().password = currentUser.password;
+                                  Navigator.pushNamed(context, '/profile');
                                 }
                               },
                               child: Text(
-                                'Login',
+                                'Submit',
                                 style: TextStyle(fontSize: 16),
                               ),
                               style: ElevatedButton.styleFrom(

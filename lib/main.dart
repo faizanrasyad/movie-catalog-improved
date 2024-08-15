@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:katalog_film/edit_account.dart';
 import 'package:katalog_film/movies.dart';
 import 'package:katalog_film/login.dart';
 import 'package:katalog_film/profile.dart';
@@ -14,7 +15,8 @@ void main() {
       '/login': (context) => Login(),
       '/register': (context) => Register(),
       '/movie': (context) => Movies(),
-      '/profile': (context) => Profile()
+      '/profile': (context) => Profile(),
+      '/editAccount': (context) => EditAccount()
     },
     debugShowCheckedModeBanner: false,
   ));
